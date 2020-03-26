@@ -348,7 +348,7 @@ sub addPairedDistance {
 	print STDERR "NOTICE: Start adding paired end distance information to the read file (input=$readinfile output=$readoutfile)\n";
 	open (IN, $readinfile) or die "Error: cannot read from inputfile $readinfile: $!\n";
 	open (OUT, ">$readoutfile") or die "Error: cannot write to outputfile $readoutfile: $!\n";
-	open (SAM, "bcftools view $bamfile |") or die "Error: cannot read from SAM input\n";
+	open (SAM, "samtools view $bamfile |") or die "Error: cannot read from SAM input\n";
 	$_ = <IN>;
 	chomp;
 	m/^Name\tCoverage/ or die "Error: invalid header line in inputfile $readinfile: <$_>\n";
